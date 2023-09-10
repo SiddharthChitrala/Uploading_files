@@ -1,0 +1,14 @@
+<!-- src/app/resume/resume.component.html -->
+<h2>Upload a Resume</h2>
+<label for="resumeFile">Choose a Resume File:</label>
+<input type="file" (change)="onFileSelected($event)" id="resumeFile" />
+<button (click)="uploadResume()">Upload</button>
+
+<h2>Resume List</h2>
+
+<ul>
+  <li *ngFor="let resume of resumes">
+    {{ resume.name }}
+    <a [href]="'http://localhost:3000/download/' + resume._id" download>Download</a>
+  </li>
+</ul>
